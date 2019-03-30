@@ -5,7 +5,8 @@ import { Footer } from 'src/common/footer/footer'
 
 const Content = () => (
   <>
-    <div className="item">logo</div>
+    <div className="item">React</div>
+    <div className="item">用于构建用户界面的 JavaScript 库</div>
   </>
 )
 

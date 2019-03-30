@@ -14,7 +14,19 @@ type Links = {
 
 const links: Links = [
   {
-    name: 'Blog',
+    name: '文档',
+    href: '#/blog'
+  },
+  {
+    name: '教程',
+    href: '#/blog'
+  },
+  {
+    name: '社区',
+    href: '#/blog'
+  },
+  {
+    name: '博客',
     href: '#/blog'
   }
 ]
@@ -39,12 +51,12 @@ const HeaderContentItem = ({ links }: { links: Links }) => (
 
 const HeaderContentHead = () => (
   <a className="header_content_head" href="#/">
-    Home
+    React
   </a>
 )
 
 const HeaderContentFoot = () => (
   <a className="header_content_foot" href="#/">
-    Foot
+    GitHub
   </a>
 )
