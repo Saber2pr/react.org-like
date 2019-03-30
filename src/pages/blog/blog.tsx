@@ -1,72 +1,75 @@
 import React, { useState } from 'react'
 import './blog.less'
+import { Header } from 'src/common/header/header'
+import { blogRoutes } from 'src/routes/blogs'
 
-const HeaderContentItem = ({ links }: { links: string[] }) => (
-  <span className="header_content_item">
-    {links.map(link => (
-      <a className="header_content_items" href="#">
-        {link}
-      </a>
+const RouteBase = ({
+  routes,
+  type,
+  onClick
+}: {
+  routes: { name: string; href: string }[]
+  type: 'routes' | 'routes_smart'
+  onClick?: Function
+}) => (
+  <div className={type}>
+    {routes.map(({ name, href }, index) => (
+      <div key={href + index}>
+        <a
+          href={'#' + href}
+          key={name + index}
+          onClick={() => onClick && onClick()}
+        >
+          {name}
+        </a>
+      </div>
     ))}
-  </span>
-)
-
-const HeaderContentHead = () => (
-  <a className="header_content_head" href="#">
-    Head
-  </a>
-)
-
-const HeaderContentFoot = () => (
-  <a className="header_content_foot" href="#">
-    Foot
-  </a>
-)
-
-const HeaderContent = () => (
-  <nav className="header_content">
-    <HeaderContentHead />
-    <HeaderContentItem links={['Home', 'Blog', 'About']} />
-    <HeaderContentFoot />
-  </nav>
-)
-
-const Header = () => (
-  <div className="header">
-    <HeaderContent />
   </div>
 )
 
-const Routes = () => <div className="routes">Routes</div>
+const Routes = ({ routes }: { routes: { name: string; href: string }[] }) => (
+  <RouteBase routes={routes} type="routes" />
+)
 
-const RoutesSmart = () => <div className="routes_smart">RoutesSmart</div>
+const RoutesSmart = ({
+  routes,
+  onClick
+}: {
+  routes: { name: string; href: string }[]
+  onClick: Function
+}) => <RouteBase routes={routes} type="routes_smart" onClick={onClick} />
 
-const Content = () => <div className="content">Content</div>
+const Content = ({ content }: { content: string }) => (
+  <div className="content">{content}</div>
+)
 
-const SmartBtn = ({ onClick }: { onClick: Function }) => (
+const SmartBtn = ({ onClick, inner }: { onClick: Function; inner: string }) => (
   <div className="smartBtn" onClick={() => onClick()}>
-    X
+    {inner}
   </div>
 )
 
-const Main = () => {
-  const [state, setState] = useState(false)
+const Main = ({ href }: { href: string }) => {
+  const [open, setOpened] = useState(false)
+  const current = blogRoutes.find(b => b.href === href) || blogRoutes[0]
   return (
     <div className="main">
-      <Content />
-      <Routes />
-      {state && <RoutesSmart />}
-      <SmartBtn onClick={() => setState(!state)} />
+      <Content content={current.content} />
+      <Routes routes={blogRoutes} />
+      {open && (
+        <RoutesSmart routes={blogRoutes} onClick={() => setOpened(false)} />
+      )}
+      <SmartBtn onClick={() => setOpened(!open)} inner={open ? 'X' : 'O'} />
     </div>
   )
 }
 
 const Footer = () => <div>Footer</div>
 
-export const Blog = () => (
+export const Blog = ({ href }: { href: string }) => (
   <>
     <Header />
-    <Main />
+    <Main href={href} />
     <Footer />
   </>
 )

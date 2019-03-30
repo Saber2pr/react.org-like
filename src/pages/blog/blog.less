@@ -1,65 +1,11 @@
-@HeaderWidth: 100%;
 @HeaderHeight: 50px;
-
-@HeaderContentWidth: 90%;
-@HeaderContentItemWidth: 100px;
-
-@HeaderContentHeadWidth: 100px;
-@HeaderContentFootWidth: 100px;
-
 @ContentWidth: 70%;
 @RoutesWidth: 30%;
-
-.header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: @HeaderWidth;
-  height: @HeaderHeight;
-  background-color: aqua;
-
-  .header_content {
-    width: @HeaderContentWidth;
-    height: inherit;
-    margin: 0 auto;
-    line-height: @HeaderHeight;
-
-    display: flex;
-    flex-direction: row;
-
-    .header_content_head {
-      text-align: center;
-      width: @HeaderContentHeadWidth;
-      height: inherit;
-    }
-
-    .header_content_foot {
-      text-align: center;
-      width: @HeaderContentFootWidth;
-      height: inherit;
-      position: relative;
-      right: 0;
-    }
-
-    .header_content_item {
-      flex-grow: 1;
-
-      .header_content_items {
-        display: inline-block;
-        text-align: center;
-        width: @HeaderContentItemWidth;
-        height: inherit;
-      }
-    }
-  }
-
-}
 
 .main {
   margin-top: @HeaderHeight;
   background-color: aquamarine;
   width: 100%;
-  height: 100vh;
 
   .content {
     text-align: center;
@@ -73,6 +19,7 @@
     width: @RoutesWidth;
     height: 100vh;
     top: @HeaderHeight;
+    overflow-y: scroll;
   }
 
   .routes_smart {
@@ -83,6 +30,7 @@
     width: 100%;
     height: 100vh;
     background-color: burlywood;
+    overflow-y: scroll;
   }
 
   .smartBtn {
@@ -90,23 +38,8 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .header {
-    text-align: center;
 
-    .header_content {
-      .header_content_head {
-        display: none;
-      }
-
-      .header_content_foot {
-        display: none;
-      }
-    }
-  }
-}
-
-@media screen and(max-width: 960px) {
+@media screen and(max-width: 760px) {
   .main {
     .routes {
       display: none;
