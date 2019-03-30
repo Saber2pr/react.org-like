@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './blog.less'
 import { Header } from 'src/common/header/header'
 import { blogRoutes } from 'src/routes/blogs'
+import { Footer } from 'src/common/footer/footer'
 
 const RouteBase = ({
   routes,
@@ -40,7 +41,10 @@ const RoutesSmart = ({
 }) => <RouteBase routes={routes} type="routes_smart" onClick={onClick} />
 
 const Content = ({ content }: { content: string }) => (
-  <div className="content">{content}</div>
+  <div className="content">
+    <p>{content}</p>
+    <Footer />
+  </div>
 )
 
 const SmartBtn = ({ onClick, inner }: { onClick: Function; inner: string }) => (
@@ -64,12 +68,9 @@ const Main = ({ href }: { href: string }) => {
   )
 }
 
-const Footer = () => <div>Footer</div>
-
 export const Blog = ({ href }: { href: string }) => (
   <>
     <Header />
     <Main href={href} />
-    <Footer />
   </>
 )

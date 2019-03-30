@@ -44,7 +44,7 @@ const HeaderContentHead = () => (
 )
 
 const HeaderContentFoot = () => (
-  <a className="header_content_foot" href="#">
+  <a className="header_content_foot" href="#/">
     Foot
   </a>
 )
