@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, CSSProperties } from 'react'
 import './blog.less'
 import { Header } from 'src/common/header/header'
 import { blogRoutes } from 'src/routes/blogs'
 import { Footer } from 'src/common/footer/footer'
+import { CodeText } from 'saber2pr-page'
 
 const RouteBase = ({
   routes,
@@ -12,23 +13,25 @@ const RouteBase = ({
   routes: { name: string; href: string }[]
   type: 'routes' | 'routes_smart'
   onClick?: Function
-}) => (
-  <div className={type}>
-    <br />
-    {routes.map(({ name, href }, index) => (
-      <div key={href + index}>
-        <a
-          href={'#' + href}
-          key={name + index}
-          onClick={() => onClick && onClick()}
-          className="routes_items"
-        >
-          {name}
-        </a>
-      </div>
-    ))}
-  </div>
-)
+}) => {
+  return (
+    <div className={type}>
+      <br />
+      {routes.map(({ name, href }, index) => (
+        <div key={href + index}>
+          <a
+            href={'#' + href}
+            key={name + index}
+            onClick={() => onClick && onClick()}
+            className="routes_items"
+          >
+            {name}
+          </a>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 const Routes = ({ routes }: { routes: { name: string; href: string }[] }) => (
   <RouteBase routes={routes} type="routes" />
@@ -42,10 +45,18 @@ const RoutesSmart = ({
   onClick: Function
 }) => <RouteBase routes={routes} type="routes_smart" onClick={onClick} />
 
+const codeStyle: CSSProperties = {
+  backgroundColor: '#282c34',
+  color: 'white',
+  borderRadius: '10px'
+}
+
 const Content = ({ content, name }: { name: string; content: string }) => (
   <div className="content_container">
     <h1>{name}</h1>
-    <p className="content">{content}</p>
+    <div className="content">
+      <CodeText content={content} style={{ p: {}, pre: codeStyle }} />
+    </div>
     <Footer />
   </div>
 )

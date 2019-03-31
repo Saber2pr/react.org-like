@@ -1,3 +1,5 @@
+@import "../../common/animation/fade-in.less";
+
 @HeaderHeight: 50px;
 @ContentWidth: 70%;
 @RoutesWidth: 30%;
@@ -37,6 +39,10 @@
     height: 100vh;
     background-color: #f7f7f7;
     overflow-y: scroll;
+
+    animation: fade-in;
+    animation-duration: 0.5s;
+    -webkit-animation: fade-in 0.5s;
   }
 
   .routes_items {
@@ -55,7 +61,6 @@
     display: none;
   }
 }
-
 
 @media screen and(max-width: 760px) {
   .main {
@@ -85,6 +90,7 @@
       line-height: @size;
       background-color: #20232a;
       color: #61dafb;
+      border-radius: @size / 2;
     }
   }
 }
