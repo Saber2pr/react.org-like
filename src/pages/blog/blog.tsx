@@ -43,8 +43,9 @@ const RoutesSmart = ({
   onClick: Function
 }) => <RouteBase routes={routes} type="routes_smart" onClick={onClick} />
 
-const Content = ({ content }: { content: string }) => (
+const Content = ({ content, name }: { name: string; content: string }) => (
   <div className="content_container">
+    <h1>{name}</h1>
     <p className="content">{content}</p>
     <Footer />
   </div>
@@ -61,7 +62,7 @@ const Main = ({ href }: { href: string }) => {
   const current = blogRoutes.find(b => b.href === href) || blogRoutes[0]
   return (
     <div className="main">
-      <Content content={current.content} />
+      <Content content={current.content} name={current.name} />
       <Routes routes={blogRoutes} />
       {open && (
         <RoutesSmart routes={blogRoutes} onClick={() => setOpened(false)} />
