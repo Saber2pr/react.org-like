@@ -5,6 +5,7 @@ import { Home } from './pages/home/home'
 import { Blog } from './pages/blog/blog'
 import { blogRoutes } from './routes/blogs'
 import { useRoutes, Routes } from 'use-routes'
+import './index.less'
 
 const routes: Routes = blogRoutes.reduce<Routes>(
   (routes, { href }) => ({

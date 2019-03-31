@@ -1,13 +1,28 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
+@ContentHeight: 300px;
 
-  .item {
-    width: 70%;
-    margin: 0 auto;
-    line-height: 50px;
-    text-align: center;
-    background-color: rgb(156, 56, 160);
+.container {
+  margin-top: 50px;
+  height: 100vh;
+
+  .content_container {
+    background-color: #282c34;
+    height: @ContentHeight;
+    padding-top: @ContentHeight / 3;
+
+    .content_head {
+      text-align: center;
+      color: #d5d5d7;
+      height: 100px;
+
+      .title {
+        color: aqua;
+        font-size: 45px;
+      }
+
+      .infor {
+        line-height: 3rem;
+      }
+    }
   }
+
 }

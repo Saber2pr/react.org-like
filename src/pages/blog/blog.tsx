@@ -15,9 +15,15 @@ const RouteBase = ({
   onClick?: Function
 }) => (
   <div className={type}>
+    <br />
     {routes.map(({ name, href }, index) => (
       <div key={href + index}>
-        <A href={href} key={name + index} onClick={() => onClick && onClick()}>
+        <A
+          href={href}
+          key={name + index}
+          onClick={() => onClick && onClick()}
+          className="routes_items"
+        >
           {name}
         </A>
       </div>
@@ -38,8 +44,8 @@ const RoutesSmart = ({
 }) => <RouteBase routes={routes} type="routes_smart" onClick={onClick} />
 
 const Content = ({ content }: { content: string }) => (
-  <div className="content">
-    <p>{content}</p>
+  <div className="content_container">
+    <p className="content">{content}</p>
     <Footer />
   </div>
 )

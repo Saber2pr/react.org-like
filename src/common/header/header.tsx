@@ -25,10 +25,6 @@ const links: Links = [
   {
     name: '社区',
     href: '/blog'
-  },
-  {
-    name: '博客',
-    href: '/blog'
   }
 ]
 

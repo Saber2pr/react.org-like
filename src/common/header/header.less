@@ -13,7 +13,8 @@
   top: 0;
   width: @HeaderWidth;
   height: @HeaderHeight;
-  background-color: aqua;
+  background-color: #20232a;
+  color: #d5d5d7;
 
   .header_content {
     width: @HeaderContentWidth;
@@ -28,6 +29,7 @@
       text-align: center;
       width: @HeaderContentHeadWidth;
       height: inherit;
+      color: inherit;
     }
 
     .header_content_foot {
@@ -36,6 +38,7 @@
       height: inherit;
       position: relative;
       right: 0;
+      color: inherit;
     }
 
     .header_content_item {
@@ -46,6 +49,12 @@
         text-align: center;
         width: @HeaderContentItemWidth;
         height: inherit;
+        color: inherit;
+      }
+
+      .header_content_items:active {
+        color: aqua;
+        border-bottom: 2px solid aqua;
       }
     }
   }
