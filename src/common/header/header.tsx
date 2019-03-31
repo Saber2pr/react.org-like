@@ -1,6 +1,5 @@
 import React from 'react'
 import './header.less'
-import { A } from 'use-routes'
 
 export const Header = () => (
   <div className="header">
@@ -39,21 +38,21 @@ const HeaderContent = () => (
 const HeaderContentItem = ({ links }: { links: Links }) => (
   <span className="header_content_item">
     {links.map(({ name, href }, index) => (
-      <A className="header_content_items" href={href} key={'hci' + index}>
+      <a className="header_content_items" href={'#' + href} key={'hci' + index}>
         {name}
-      </A>
+      </a>
     ))}
   </span>
 )
 
 const HeaderContentHead = () => (
-  <a className="header_content_head" href="/">
+  <a className="header_content_head" href="#/">
     React
   </a>
 )
 
 const HeaderContentFoot = () => (
-  <a className="header_content_foot" href="/">
+  <a className="header_content_foot" href="#/">
     GitHub
   </a>
 )

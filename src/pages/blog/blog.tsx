@@ -3,7 +3,6 @@ import './blog.less'
 import { Header } from 'src/common/header/header'
 import { blogRoutes } from 'src/routes/blogs'
 import { Footer } from 'src/common/footer/footer'
-import { A } from 'use-routes'
 
 const RouteBase = ({
   routes,
@@ -18,14 +17,14 @@ const RouteBase = ({
     <br />
     {routes.map(({ name, href }, index) => (
       <div key={href + index}>
-        <A
-          href={href}
+        <a
+          href={'#' + href}
           key={name + index}
           onClick={() => onClick && onClick()}
           className="routes_items"
         >
           {name}
-        </A>
+        </a>
       </div>
     ))}
   </div>
