@@ -8,13 +8,13 @@ export const blogRoutes: BlogRoutes = [
   {
     name: 'Helloworld',
     content: `尝试React最简单的方法是使用CodePen上的Hello World例子。如果你不想安装任何东西，可以在浏览器中打开它，然后跟着尝试我们接下来的例子。如果你更愿意使用本地开发环境，可以查看安装页面 。
-      \`\`\`ts
-      type BlogRoutes = {
-        name: string
-        content: string
-        href: string
-      }[]
-      \`\`\`
+\`\`\`ts
+type BlogRoutes = {
+  name: string
+  content: string
+  href: string
+}[]
+\`\`\`
       尝试React最简单的方法是使用CodePen上的Hello World例子。如果你不想安装任何东西，可以在浏览器中打开它，然后跟着尝试我们接下来的例子。如果你更愿意使用本地开发环境，可以查看安装页面 。`,
     href: '/blog'
   },
